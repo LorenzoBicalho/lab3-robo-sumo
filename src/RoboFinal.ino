@@ -9,13 +9,13 @@
 
 // Pinagens
 const int PIN_SERVO_MOTOR = 32;
-const int PIN_SENSOR_INFRAVERMELHO1 = 26;
-const int PIN_SENSOR_INFRAVERMELHO2 = 25;
-const int PIN_SENSOR_INFRAVERMELHO3 = 33;
-const int PIN_TRIGGER_ULTRASSONICO1 = 4;
-const int PIN_ECHO_ULTRASSONICO1 = 2;
-const int PIN_TRIGGER_ULTRASSONICO2 = 21;
-const int PIN_ECHO_ULTRASSONICO2 = 19;
+const int PIN_SENSOR_INFRAVER_ESQUER = 2;
+const int PIN_SENSOR_INFRAVER_DIREIT = 15;
+const int PIN_SENSOR_INFRAVER_FUNDO = 4;
+const int PIN_TRIGGER_ULTRASSONICO_DIR = 19;
+const int PIN_ECHO_ULTRASSONICO_DIR = 21;
+const int PIN_TRIGGER_ULTRASSONICO_ESQ = 22;
+const int PIN_ECHO_ULTRASSONICO_ESQ = 23;
 const int PIN_D0 = 13;
 const int PIN_D1 = 12;
 const int PIN_D2 = 14;
@@ -49,8 +49,8 @@ Servo servoMotor;
 //variáves para o sensor ultrassônico
 unsigned int distancia1 = 0;
 unsigned int distancia2 = 0;
-Ultrasonic ultrasonic1(PIN_TRIGGER_ULTRASSONICO1, PIN_ECHO_ULTRASSONICO1);
-Ultrasonic ultrasonic2(PIN_TRIGGER_ULTRASSONICO2, PIN_ECHO_ULTRASSONICO2);
+Ultrasonic ultrasonic1(PIN_TRIGGER_ULTRASSONICO_DIR, PIN_ECHO_ULTRASSONICO_DIR);
+Ultrasonic ultrasonic2(PIN_TRIGGER_ULTRASSONICO_ESQ, PIN_ECHO_ULTRASSONICO_ESQ);
 
 // Configurações Bluetooth
 BLECharacteristic *characteristicUS; //através desse objeto iremos enviar dados para o client
@@ -139,9 +139,9 @@ void setup() {
   Serial.begin(115200);
 
   // Associa a pinagem dos sensores de refletância
-  pinMode(PIN_SENSOR_INFRAVERMELHO1, INPUT);
-  pinMode(PIN_SENSOR_INFRAVERMELHO2, INPUT);
-  pinMode(PIN_SENSOR_INFRAVERMELHO3, INPUT);
+  pinMode(PIN_SENSOR_INFRAVER_ESQUER, INPUT);
+  pinMode(PIN_SENSOR_INFRAVER_DIREIT, INPUT);
+  pinMode(PIN_SENSOR_INFRAVER_FUNDO, INPUT);
   pinMode(PIN_D0, OUTPUT);
   pinMode(PIN_D1, OUTPUT);
   pinMode(PIN_D2, OUTPUT);
